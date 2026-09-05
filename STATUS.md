@@ -6,7 +6,7 @@
 ## Site Statistics
 
 - **Total Ranches:** 18
-- **Active Deals:** 8
+- **Active Deals:** 14
 - **Wagyu Ranches:** 11
 - **Akaushi Ranches:** 5
 - **Heritage Breeds:** 3
@@ -18,7 +18,7 @@
 ### Core Pages
 - ✅ Home (`index.html`)
 - ✅ All Listings (`/listings/`)
-- ✅ Seasonal Deals (`/deals/`) - 8 active deals
+- ✅ Seasonal Deals (`/deals/`) - 14 active deals
 - ✅ About (`/about/`)
 
 ### Hub Pages
@@ -73,10 +73,11 @@ All 18 ranch listings have been verified from:
 - Shipping policy pages
 
 ### Deals & Pricing
-- ✅ **8 active deals** verified from ranch websites (as of Sept 5, 2026)
+- ✅ **14 active deals** verified from ranch websites (as of Sept 5, 2026)
 - ✅ Sale prices confirmed from ranch sales/clearance pages
 - ✅ Regular prices included when shown by ranch
 - ⚠️ Deals updated periodically—users should confirm current pricing on ranch sites
+- ⚠️ Certified Piedmontese Labor Day Sale ends Sep 7, 2026 midnight CST
 
 ### What We Record
 - ✅ Ranch name and location

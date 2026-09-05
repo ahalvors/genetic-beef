@@ -25,7 +25,7 @@ Static HTML site generated from `data/listings.json`:
 
 ```
 data/listings.json     # Source of truth: 18 ranch listings
-data/deals.json        # Current deals: 8 verified deals
+data/deals.json        # Current deals: 14 verified deals
 build.py              # Python generator: data → HTML pages
 css/site.css          # Styling
 index.html            # Home page (generated)
@@ -46,7 +46,7 @@ about/                # About page (generated)
 ```
 ├── data/
 │   ├── listings.json          # 18 ranch listings (source of truth)
-│   └── deals.json             # 8 current deals (verified pricing)
+│   └── deals.json             # 14 current deals (verified pricing)
 ├── css/
 │   └── site.css              # Site styles
 ├── build.py                  # Static site generator
@@ -120,7 +120,7 @@ See [STATUS.md](STATUS.md) for known gaps and limitations.
 ## Site Statistics
 
 - 18 ranches
-- 8 active deals (verified Sept 5, 2026)
+- 14 active deals (verified Sept 5, 2026)
 - 11 Wagyu, 5 Akaushi, 3 heritage breeds
 - 26 total pages (home, listings, deals, hubs, guides)
 - Mobile-first, warm ranch/editorial design
@@ -164,4 +164,4 @@ For directory questions or ranch additions: Open an issue on GitHub.
 ---
 
 **Last Updated:** September 5, 2026  
-**Ranches:** 18 | **Deals:** 8 | **Pages:** 26 | **Build:** ✅ Passing
+**Ranches:** 18 | **Deals:** 14 | **Pages:** 26 | **Build:** ✅ Passing
