@@ -1,8 +1,8 @@
-# Genetic Beef Directory
+# Acre & Plate
 
-**Find ranch-direct beef where the genetics are named, registered, or DNA-verified—Fullblood Wagyu, Akaushi, Japanese Black, and rare heritage breeds—not grocery "Wagyu" marketing.**
+**Ranch-direct beef for people who care where dinner came from—local pasture, named herds, honest sourcing.**
 
-Static directory site listing verified ranches selling genetics-documented beef direct to consumers.
+Static directory site listing ranches selling beef with traceable bloodlines direct to consumers.
 
 🔗 **[View Site](https://genetic-beef.netlify.app)** (will be live after Netlify deploy)
 
@@ -11,11 +11,11 @@ Static directory site listing verified ranches selling genetics-documented beef 
 ## What This Is
 
 A curated directory of 18 U.S. ranches selling:
-- **Fullblood Wagyu** (DNA-verified, registered Japanese genetics)
+- **Fullblood Wagyu** (registered Japanese bloodlines, DNA-verified)
 - **Akaushi** (Japanese Brown Wagyu)
 - **Heritage breeds** (Randall Lineback, Dexter, Piedmontese)
 
-All direct-to-consumer. No retail "Wagyu" marketing. Every ranch has a public website with verifiable genetics claims.
+All direct-to-consumer. No retail "Wagyu" marketing. Every ranch has a public website with verifiable breed claims.
 
 **New:** Seasonal deals section tracking verified sale, clearance, and overstock pricing across ranches.
 
@@ -106,7 +106,7 @@ Quick version:
 All 18 ranches verified from public websites as of September 2026.
 
 **We record:**
-- Genetics claims (exact wording from ranch sites)
+- Breed and bloodline claims (exact wording from ranch sites)
 - Location, products, shipping
 - Contact info (phone, website)
 
@@ -138,6 +138,7 @@ No framework. No build toolchain. Just Python + HTML + CSS.
 ## Maintenance
 
 **Owner:** BeefBot  
+**Project:** Acre & Plate
 **Repository:** github.com/beefbot/genetic-beef (placeholder - update to real repo)  
 **Status:** See [STATUS.md](STATUS.md)
 
@@ -156,7 +157,7 @@ Code: MIT License (build.py, site structure)
 
 ## Contact
 
-This is a directory site. We don't sell beef.  
+Acre & Plate is a directory site. We don't sell beef.  
 Contact ranches directly via links in each listing.
 
 For directory questions or ranch additions: Open an issue on GitHub.

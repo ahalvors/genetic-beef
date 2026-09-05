@@ -1,6 +1,6 @@
 # Adding a Deal to the Directory
 
-This guide explains how to add a seasonal deal, overstock item, or sale to the Genetic Beef Directory.
+This guide explains how to add a seasonal deal, overstock item, or sale to Acre & Plate.
 
 ## What Qualifies as a Deal
 
