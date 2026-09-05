@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Genetic Beef Directory - Static Site Generator
-Generates all pages from data/listings.json
+Generates all pages from data/listings.json and data/deals.json
 """
 
 import json
@@ -13,6 +13,11 @@ from typing import List, Dict, Any
 with open('data/listings.json', 'r') as f:
     data = json.load(f)
     listings = data['listings']
+
+# Load deals data
+with open('data/deals.json', 'r') as f:
+    deals_data = json.load(f)
+    deals = deals_data['deals']
 
 def ensure_dir(path: str):
     """Create directory if it doesn't exist"""
@@ -47,6 +52,7 @@ def base_template(title: str, content: str, meta_description: str = "") -> str:
             </div>
             <ul class="nav-links">
                 <li><a href="/listings/">All Listings</a></li>
+                <li><a href="/deals/">Deals</a></li>
                 <li><a href="/wagyu/">Wagyu</a></li>
                 <li><a href="/akaushi/">Akaushi</a></li>
                 <li><a href="/texas/">Texas</a></li>
@@ -91,6 +97,72 @@ def breed_chip(breed: str) -> str:
     }
     return f'<span class="breed-chip breed-{breed}">{breed_map.get(breed, breed)}</span>'
 
+def get_best_deals_by_cut() -> Dict[str, Dict[str, Any]]:
+    """Get the best deal for each cut type"""
+    best_by_cut = {}
+    
+    for deal in deals:
+        cut = deal['cut']
+        
+        # Calculate discount percentage
+        discount_pct = 0
+        if deal.get('regular_price') and deal['regular_price'] > 0:
+            discount_pct = ((deal['regular_price'] - deal['sale_price']) / deal['regular_price']) * 100
+        
+        # If we don't have this cut yet, or this deal is better, save it
+        if cut not in best_by_cut:
+            best_by_cut[cut] = {'deal': deal, 'discount_pct': discount_pct}
+        else:
+            # Compare by absolute price (lower is better)
+            if deal['sale_price'] < best_by_cut[cut]['deal']['sale_price']:
+                best_by_cut[cut] = {'deal': deal, 'discount_pct': discount_pct}
+    
+    return best_by_cut
+
+def deal_card(deal: Dict[str, Any]) -> str:
+    """Generate deal card HTML"""
+    # Calculate discount percentage
+    discount_pct = 0
+    discount_html = ''
+    price_html = f'<span class="sale-price">${deal["sale_price"]:.2f}</span>'
+    
+    if deal.get('regular_price') and deal['regular_price'] > 0:
+        discount_pct = ((deal['regular_price'] - deal['sale_price']) / deal['regular_price']) * 100
+        discount_html = f'<span class="discount-badge">-{discount_pct:.0f}%</span>'
+        price_html = f'<span class="regular-price">${deal["regular_price"]:.2f}</span> <span class="sale-price">${deal["sale_price"]:.2f}</span>'
+    
+    # Get listing link if available
+    listing_link_html = ''
+    if deal.get('listing_id'):
+        listing_link_html = f'<a href="/listings/{deal["listing_id"]}/" class="btn-secondary">View Ranch</a>'
+    
+    gaps_html = ''
+    if deal.get('gaps'):
+        gaps_html = f'<p class="note">{deal["gaps"]}</p>'
+    
+    verified_date = deal.get('verified_at', '')
+    
+    return f"""<article class="deal-card">
+        <div class="deal-header">
+            <span class="season-badge">{deal['season_label']}</span>
+            {discount_html}
+        </div>
+        <h3><a href="{deal['product_url']}" target="_blank" rel="noopener">{deal['product_name']}</a></h3>
+        <div class="ranch-name">{deal['ranch_name']}</div>
+        <div class="cut-type">{deal['cut'].replace('-', ' ').title()}</div>
+        <div class="deal-price">
+            {price_html}
+            <span class="unit">/ {deal['unit']}</span>
+        </div>
+        <p class="deal-reason">{deal['reason']}</p>
+        {gaps_html}
+        <div class="deal-verified">Verified {verified_date}</div>
+        <div class="actions">
+            {listing_link_html}
+            <a href="{deal['product_url']}" target="_blank" rel="noopener" class="btn-primary">View Deal →</a>
+        </div>
+    </article>"""
+
 def listing_card(listing: Dict[str, Any], show_full: bool = False) -> str:
     """Generate listing card HTML"""
     breeds_html = ''.join([breed_chip(b) for b in listing['breeds']])
@@ -128,6 +200,29 @@ def build_index():
     
     featured_html = '\n'.join([listing_card(l) for l in featured[:3]])
     
+    # Get best deals by cut for seasonal deals section
+    best_by_cut = get_best_deals_by_cut()
+    top_deals = sorted(best_by_cut.items(), key=lambda x: x[1]['discount_pct'], reverse=True)[:3]
+    
+    deals_html = ''
+    if top_deals:
+        deals_cards = '\n'.join([deal_card(item[1]['deal']) for item in top_deals])
+        deals_html = f"""
+    <section class="seasonal-deals">
+        <div class="container">
+            <h2>Seasonal Deals & Overstock</h2>
+            <p class="section-intro">The best current deals across ranches—sale, clearance, and overstock inventory verified from ranch websites.</p>
+            <div class="deals-grid">
+                {deals_cards}
+            </div>
+            <div class="view-all">
+                <a href="/deals/" class="btn-primary">View All {len(deals)} Deals</a>
+            </div>
+            <p class="deals-disclaimer">⚠️ Prices verified {deals[0].get('verified_at', '')} — confirm current availability and pricing on ranch websites before ordering.</p>
+        </div>
+    </section>
+    """
+    
     content = f"""
     <section class="hero">
         <div class="container">
@@ -135,11 +230,14 @@ def build_index():
             <p class="tagline">Find ranch-direct beef where the genetics are named, registered, or DNA-verified—Fullblood Wagyu, Akaushi, Japanese Black, and rare heritage breeds—not grocery "Wagyu" marketing.</p>
             <div class="hero-actions">
                 <a href="/listings/" class="btn-primary">Browse All Ranches</a>
+                <a href="/deals/" class="btn-secondary">Deals</a>
                 <a href="/wagyu/" class="btn-secondary">Wagyu</a>
                 <a href="/akaushi/" class="btn-secondary">Akaushi</a>
             </div>
         </div>
     </section>
+    
+    {deals_html}
     
     <section class="how-it-works">
         <div class="container">
@@ -369,6 +467,69 @@ def build_guide():
     html = base_template("Wagyu vs Akaushi Guide", content, "Learn the difference between Wagyu and Akaushi beef, and what to look for when buying ranch-direct.")
     write_page('guides/wagyu-vs-akaushi/index.html', html)
 
+def build_deals_page():
+    """Build deals hub page"""
+    # Group deals by cut
+    deals_by_cut = {}
+    for deal in deals:
+        cut = deal['cut']
+        if cut not in deals_by_cut:
+            deals_by_cut[cut] = []
+        deals_by_cut[cut].append(deal)
+    
+    # Sort cuts alphabetically
+    sorted_cuts = sorted(deals_by_cut.keys())
+    
+    # Generate all deal cards
+    all_deals_html = '\n'.join([deal_card(deal) for deal in deals])
+    
+    # Generate by-cut sections
+    by_cut_html = ''
+    for cut in sorted_cuts:
+        cut_deals = deals_by_cut[cut]
+        cut_cards_html = '\n'.join([deal_card(deal) for deal in cut_deals])
+        cut_title = cut.replace('-', ' ').title()
+        by_cut_html += f"""
+        <div class="deals-by-cut">
+            <h3 class="cut-heading">{cut_title} ({len(cut_deals)})</h3>
+            <div class="deals-grid">
+                {cut_cards_html}
+            </div>
+        </div>
+        """
+    
+    content = f"""
+    <section class="page-header">
+        <div class="container">
+            <h1>Seasonal Deals & Overstock</h1>
+            <p>Current sale, clearance, and overstock deals from verified ranches</p>
+            <p class="count">{len(deals)} active deals</p>
+        </div>
+    </section>
+    
+    <section class="deals-section">
+        <div class="container">
+            <div class="deals-intro">
+                <h2>How This Works</h2>
+                <p>We scout ranch websites for sale, clearance, and overstock inventory. When a ranch marks down ribeyes, ground beef, or other cuts, we verify the deal and list it here. <strong>Always confirm pricing and availability on the ranch website before ordering</strong>—deals change frequently.</p>
+                <p class="deals-disclaimer">⚠️ Prices last verified {deals[0].get('verified_at', '')}. Deals subject to ranch inventory and may sell out or expire.</p>
+            </div>
+            
+            <h2>All Current Deals</h2>
+            <div class="deals-grid">
+                {all_deals_html}
+            </div>
+            
+            <h2 class="section-divider">Deals by Cut</h2>
+            {by_cut_html}
+        </div>
+    </section>
+    """
+    
+    meta = f"Current seasonal deals and overstock on Wagyu, Akaushi, and heritage beef from verified ranches. {len(deals)} active deals."
+    html = base_template("Seasonal Deals & Overstock", content, meta)
+    write_page('deals/index.html', html)
+
 def build_about():
     """Build about page"""
     content = """
@@ -472,10 +633,14 @@ def main():
     # About
     build_about()
     
+    # Deals page
+    build_deals_page()
+    
     print(f"\n✓ Built {len(listings)} listing pages")
     print("✓ Built hub pages (wagyu, akaushi, texas)")
     print("✓ Built guide and about pages")
-    print(f"\n✨ Site build complete! Total pages: {len(listings) + 7}")
+    print(f"✓ Built deals page with {len(deals)} deals")
+    print(f"\n✨ Site build complete! Total pages: {len(listings) + 8}")
 
 if __name__ == '__main__':
     main()
