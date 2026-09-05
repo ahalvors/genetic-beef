@@ -1,0 +1,591 @@
+/* Genetic Beef Directory - Site Styles */
+
+/* CSS Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primary: #8B4513;
+    --color-primary-dark: #6B3410;
+    --color-secondary: #D2691E;
+    --color-accent: #CD853F;
+    --color-text: #2C1810;
+    --color-text-light: #5C4033;
+    --color-bg: #FFF8F0;
+    --color-bg-light: #FFFCF7;
+    --color-border: #E5D5C5;
+    --color-success: #6B8E23;
+    --color-warning: #D97706;
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --radius: 0.5rem;
+    --shadow: 0 2px 8px rgba(44, 24, 16, 0.08);
+    --shadow-hover: 0 4px 16px rgba(44, 24, 16, 0.12);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    background: var(--color-bg);
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+}
+
+/* Header & Navigation */
+header {
+    background: white;
+    border-bottom: 2px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow);
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-sm) 0;
+}
+
+.logo a {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--spacing-md);
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+    header nav {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--spacing-sm);
+        font-size: 0.9rem;
+    }
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: white;
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 800;
+}
+
+.hero .tagline {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto var(--spacing-lg);
+    line-height: 1.7;
+    opacity: 0.95;
+}
+
+.hero-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+    
+    .hero .tagline {
+        font-size: 1rem;
+    }
+}
+
+/* Buttons */
+.btn-primary,
+.btn-secondary {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-hover);
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--color-primary);
+    border-color: var(--color-border);
+}
+
+.btn-secondary:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-1px);
+}
+
+/* Sections */
+section {
+    padding: var(--spacing-xl) 0;
+}
+
+.page-header {
+    background: white;
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--spacing-lg) 0;
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.breadcrumb {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-sm);
+}
+
+.breadcrumb a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+/* How It Works */
+.how-it-works {
+    background: white;
+}
+
+.how-it-works h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.step {
+    text-align: center;
+}
+
+.step-number {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto var(--spacing-sm);
+}
+
+.step h3 {
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-primary-dark);
+}
+
+/* Listings Grid */
+.listings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+    .listings-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.listing-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.2s;
+}
+
+.listing-card:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.listing-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.listing-card h3 a {
+    color: var(--color-primary-dark);
+    text-decoration: none;
+}
+
+.listing-card h3 a:hover {
+    color: var(--color-primary);
+}
+
+.location {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Breed Chips */
+.breeds {
+    display: flex;
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-sm);
+}
+
+.breed-chip {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.breed-wagyu {
+    background: #FEE2E2;
+    color: #991B1B;
+}
+
+.breed-akaushi {
+    background: #DBEAFE;
+    color: #1E40AF;
+}
+
+.breed-heritage {
+    background: #D1FAE5;
+    color: #065F46;
+}
+
+.breed-randall-lineback,
+.breed-dexter {
+    background: #E0E7FF;
+    color: #3730A3;
+}
+
+.breed-piedmontese {
+    background: #FCE7F3;
+    color: #831843;
+}
+
+/* Listing Content */
+.listing-card .genetics {
+    font-size: 0.95rem;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.5;
+}
+
+.listing-card .products,
+.listing-card .shipping {
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.listing-card .shipping.limited {
+    color: var(--color-warning);
+}
+
+.listing-card .note {
+    background: #FEF3C7;
+    padding: var(--spacing-xs);
+    border-radius: var(--radius);
+    font-size: 0.85rem;
+    margin-bottom: var(--spacing-sm);
+    border-left: 3px solid var(--color-warning);
+}
+
+.actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+/* Listing Detail Page */
+.listing-detail .container {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: var(--spacing-xl);
+}
+
+@media (max-width: 968px) {
+    .listing-detail .container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.detail-main {
+    background: white;
+    padding: var(--spacing-lg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.detail-main h2 {
+    color: var(--color-primary-dark);
+    margin: var(--spacing-lg) 0 var(--spacing-sm);
+    font-size: 1.5rem;
+}
+
+.detail-main h2:first-child {
+    margin-top: 0;
+}
+
+.genetics-detail {
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    padding: var(--spacing-md);
+    background: var(--color-bg-light);
+    border-left: 4px solid var(--color-primary);
+    border-radius: var(--radius);
+}
+
+.note-box {
+    background: #FEF3C7;
+    padding: var(--spacing-md);
+    border-radius: var(--radius);
+    border-left: 4px solid var(--color-warning);
+    margin: var(--spacing-md) 0;
+}
+
+.products-list {
+    list-style-position: inside;
+    line-height: 1.8;
+}
+
+.contact-info {
+    background: var(--color-bg-light);
+    padding: var(--spacing-md);
+    border-radius: var(--radius);
+    margin-top: var(--spacing-lg);
+}
+
+.cta {
+    margin-top: var(--spacing-lg);
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+/* Sidebar */
+.detail-sidebar {
+    position: sticky;
+    top: 6rem;
+    height: fit-content;
+}
+
+.quick-facts {
+    background: white;
+    padding: var(--spacing-md);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.quick-facts h3 {
+    color: var(--color-primary-dark);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.2rem;
+}
+
+.quick-facts dl {
+    display: grid;
+    gap: var(--spacing-sm);
+}
+
+.quick-facts dt {
+    font-weight: 600;
+    color: var(--color-text-light);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.quick-facts dd {
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Hub Links */
+.hub-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.hub-link {
+    display: block;
+    padding: var(--spacing-md);
+    background: white;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius);
+    text-align: center;
+    text-decoration: none;
+    color: var(--color-primary-dark);
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.2s;
+}
+
+.hub-link:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.hub-link .count {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    font-weight: normal;
+    margin-top: var(--spacing-xs);
+}
+
+/* Guide & About Pages */
+.guide,
+.about {
+    background: white;
+    padding: var(--spacing-lg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.guide h2,
+.about h2 {
+    color: var(--color-primary-dark);
+    margin: var(--spacing-lg) 0 var(--spacing-sm);
+    font-size: 1.5rem;
+}
+
+.guide h2:first-child,
+.about h2:first-child {
+    margin-top: 0;
+}
+
+.guide ul,
+.guide ol,
+.about ul,
+.about ol {
+    margin-left: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+.guide li,
+.about li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.guide p,
+.about p {
+    margin-bottom: var(--spacing-md);
+}
+
+.view-all {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+}
+
+/* Footer */
+footer {
+    background: var(--color-primary-dark);
+    color: white;
+    padding: var(--spacing-lg) 0;
+    margin-top: var(--spacing-xl);
+}
+
+footer .tagline {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-md);
+    opacity: 0.95;
+    line-height: 1.7;
+}
+
+footer .disclaimer {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+}
+
+footer .links {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+footer a {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
