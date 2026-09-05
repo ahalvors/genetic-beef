@@ -6,17 +6,19 @@
 ## Site Statistics
 
 - **Total Ranches:** 18
+- **Active Deals:** 8
 - **Wagyu Ranches:** 11
 - **Akaushi Ranches:** 5
 - **Heritage Breeds:** 3
 - **Texas Ranches:** 6
-- **Total Pages:** 25
+- **Total Pages:** 26
 
 ## Pages Built
 
 ### Core Pages
 - ✅ Home (`index.html`)
 - ✅ All Listings (`/listings/`)
+- ✅ Seasonal Deals (`/deals/`) - 8 active deals
 - ✅ About (`/about/`)
 
 ### Hub Pages
@@ -70,18 +72,25 @@ All 18 ranch listings have been verified from:
 - Contact information pages
 - Shipping policy pages
 
+### Deals & Pricing
+- ✅ **8 active deals** verified from ranch websites (as of Sept 5, 2026)
+- ✅ Sale prices confirmed from ranch sales/clearance pages
+- ✅ Regular prices included when shown by ranch
+- ⚠️ Deals updated periodically—users should confirm current pricing on ranch sites
+
 ### What We Record
 - ✅ Ranch name and location
 - ✅ Genetics claims (DNA-verified, registered, traceable)
 - ✅ Available products
 - ✅ Shipping information
 - ✅ Contact details (website, phone where available)
+- ✅ Current deals (sale, clearance, overstock)
 
 ### What We Don't Include
-- ❌ Real-time pricing (changes frequently)
-- ❌ Current inventory/stock levels
+- ❌ Real-time inventory/stock levels
 - ❌ Breeding stock sales
 - ❌ Retail products without ranch attribution
+- ❌ Fake "sales" with inflated regular prices
 
 ## Build Process
 
@@ -89,7 +98,7 @@ All 18 ranch listings have been verified from:
 python3 build.py
 ```
 
-**Output:** 25 static HTML pages + CSS
+**Output:** 26 static HTML pages + CSS
 
 **Publish Directory:** Root (all HTML files in root and subdirectories)
 
@@ -99,12 +108,17 @@ python3 build.py
 - [ ] Add heritage breeds hub page
 - [ ] Expand to more ranches (verified genetics only)
 - [ ] Add search/filter functionality (JavaScript)
-- [ ] Consider RSS feed for new listings
+- [ ] Weekly/monthly deal verification cron
+- [ ] Consider RSS feed for new listings and deals
 
 ## Maintenance
 
-**Data Source:** `data/listings.json`  
+**Data Sources:**
+- `data/listings.json` - Ranch listings
+- `data/deals.json` - Current deals
+
 **Template Engine:** `build.py` (Python)  
 **Styling:** `css/site.css`
 
-To add a ranch, see `ADDING_A_PAGE.md`.
+To add a ranch, see `ADDING_A_PAGE.md`.  
+To add a deal, see `ADDING_A_DEAL.md`.
