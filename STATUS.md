@@ -1,4 +1,4 @@
-# Genetic Beef Directory - Status
+# Acre & Plate - Status
 
 **Last Updated:** September 5, 2026  
 **Build Status:** ✅ Passing
@@ -66,7 +66,7 @@
 ## Data Quality
 
 ### Verified Information
-All 18 ranch listings have been verified from:
+All 18 ranch listings on Acre & Plate have been verified from:
 - Public ranch websites
 - Direct product pages
 - Contact information pages
@@ -81,7 +81,7 @@ All 18 ranch listings have been verified from:
 
 ### What We Record
 - ✅ Ranch name and location
-- ✅ Genetics claims (DNA-verified, registered, traceable)
+- ✅ Breed and bloodline claims (DNA-verified, registered, traceable herds)
 - ✅ Available products
 - ✅ Shipping information
 - ✅ Contact details (website, phone where available)

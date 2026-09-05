@@ -1,13 +1,13 @@
 # Adding a Ranch to the Directory
 
-This guide explains how to add a new ranch listing to the Genetic Beef Directory.
+This guide explains how to add a new ranch listing to Acre & Plate.
 
 ## Prerequisites
 
 A ranch must meet these criteria to be added:
 
 1. **Direct to Consumer:** Sells beef directly to consumers (not just wholesale)
-2. **Verified Genetics:** Named, registered, or DNA-verified genetics (Fullblood Wagyu, Akaushi, heritage breeds)
+2. **Traceable Bloodlines:** Named herds, registered cattle, or DNA-verified bloodlines (Fullblood Wagyu, Akaushi, heritage breeds)
 3. **Public Information:** Has a public website with verifiable claims
 4. **Not Breeding Stock Only:** Sells beef for consumption, not just live cattle
 
@@ -17,7 +17,7 @@ Visit the ranch's website and gather:
 - Ranch name
 - Location (city, state)
 - Website URL
-- Genetics claims (exact wording from their site)
+- Breed and bloodline claims (exact wording from their site)
 - Breeds (wagyu, akaushi, heritage, etc.)
 - Products available (steaks, ground, boxes, shares, etc.)
 - Shipping information (nationwide, regional, pickup only)
@@ -54,7 +54,7 @@ Add a new entry to the `listings` array:
 - **url** (required): Ranch website
 - **state** (required): Two-letter state code (or region like "Northern Rockies")
 - **city** (required): Primary location
-- **genetics** (required): Exact genetics claim from ranch website
+- **genetics** (required): Exact breed/bloodline claim from ranch website
 - **breeds** (required): Array of breed tags (see below)
 - **products** (required): What they sell
 - **shipping** (required): Shipping details
@@ -117,7 +117,7 @@ Example:
 
 ### Verifying Claims
 Look for:
-- Mentions of "DNA-tested", "registered", "traceable bloodlines"
+- Mentions of "DNA-tested", "registered", "traceable herds"
 - Association memberships (American Wagyu Association, etc.)
 - Specific breed documentation
 
@@ -125,7 +125,7 @@ If claims seem vague or marketing-only, don't add the ranch.
 
 ### Featured Ranches
 Only 3-4 ranches should be featured on the home page. Choose based on:
-- Exceptional genetics verification
+- Exceptional breed/bloodline documentation
 - Nationwide shipping
 - Well-documented operations
 - Representative of different breeds
@@ -161,4 +161,4 @@ Here's a full example of adding "Example Ranch":
 
 Review existing listings in `data/listings.json` for reference patterns.
 
-The goal is accuracy and honesty—only list ranches with real, verifiable genetics claims.
+The goal is accuracy and honesty—only list ranches with real, verifiable breed claims.

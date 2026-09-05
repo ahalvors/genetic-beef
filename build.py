@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Genetic Beef Directory - Static Site Generator
+Acre & Plate - Static Site Generator
 Generates all pages from data/listings.json and data/deals.json
 """
 
@@ -33,14 +33,14 @@ def write_page(path: str, content: str):
 def base_template(title: str, content: str, meta_description: str = "") -> str:
     """Base HTML template for all pages"""
     if not meta_description:
-        meta_description = "Find ranch-direct beef where genetics are named, registered, or DNA-verified—Fullblood Wagyu, Akaushi, Japanese Black, and rare heritage breeds."
+        meta_description = "Find local, sustainable, ranch-direct beef—Fullblood Wagyu, Akaushi, Japanese Black, and rare heritage breeds from ranches you can trace."
     
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title} | Genetic Beef Directory</title>
+    <title>{title} | Acre & Plate</title>
     <meta name="description" content="{meta_description}">
     <link rel="stylesheet" href="/css/site.css">
 </head>
@@ -48,7 +48,7 @@ def base_template(title: str, content: str, meta_description: str = "") -> str:
     <header>
         <nav class="container">
             <div class="logo">
-                <a href="/">Genetic Beef Directory</a>
+                <a href="/">Acre & Plate</a>
             </div>
             <ul class="nav-links">
                 <li><a href="/listings/">All Listings</a></li>
@@ -68,8 +68,8 @@ def base_template(title: str, content: str, meta_description: str = "") -> str:
     
     <footer>
         <div class="container">
-            <p class="tagline">Find ranch-direct beef where the genetics are named, registered, or DNA-verified—Fullblood Wagyu, Akaushi, Japanese Black, and rare heritage breeds—not grocery "Wagyu" marketing.</p>
-            <p class="disclaimer">This directory lists ranches with verified genetics claims. We do not sell beef. Contact ranches directly. Claims verified from public ranch websites as of {get_build_date()}.</p>
+            <p class="tagline">Ranch-direct beef for people who care where dinner came from—local pasture, named herds, honest sourcing.</p>
+            <p class="disclaimer">Acre & Plate connects you with ranches raising cattle with traceable genetics. We do not sell beef. Contact ranches directly. Claims verified from public ranch websites as of {get_build_date()}.</p>
             <p class="links">
                 <a href="/about/">About This Directory</a> · 
                 <a href="/listings/">All Ranches</a> · 
@@ -226,8 +226,8 @@ def build_index():
     content = f"""
     <section class="hero">
         <div class="container">
-            <h1>Genetic Beef Directory</h1>
-            <p class="tagline">Find ranch-direct beef where the genetics are named, registered, or DNA-verified—Fullblood Wagyu, Akaushi, Japanese Black, and rare heritage breeds—not grocery "Wagyu" marketing.</p>
+            <h1>Acre & Plate</h1>
+            <p class="tagline">Ranch-direct beef for people who care where dinner came from—local pasture, named herds, honest sourcing. Find Fullblood Wagyu, Akaushi, Japanese Black, and rare heritage breeds from ranches you can trace.</p>
             <div class="hero-actions">
                 <a href="/listings/" class="btn-primary">Browse All Ranches</a>
                 <a href="/deals/" class="btn-secondary">Deals</a>
@@ -246,12 +246,12 @@ def build_index():
                 <div class="step">
                     <div class="step-number">1</div>
                     <h3>Browse</h3>
-                    <p>Explore ranches with verified genetics—Fullblood Wagyu, Akaushi, heritage breeds.</p>
+                    <p>Explore ranches with named, traceable herds—Fullblood Wagyu, Akaushi, heritage breeds.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
                     <h3>Verify</h3>
-                    <p>Each listing shows genetics claims from ranch websites. DNA-verified, registered, or traceable bloodlines.</p>
+                    <p>Each ranch lists their cattle's bloodlines, breed registrations, or DNA verification. Real sourcing, not marketing.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
@@ -298,7 +298,7 @@ def build_listings_index():
     <section class="page-header">
         <div class="container">
             <h1>All Ranches</h1>
-            <p>{len(listings)} verified ranches with named, registered, or DNA-verified genetics</p>
+            <p>{len(listings)} ranches with named herds, registered cattle, or DNA-verified bloodlines</p>
         </div>
     </section>
     
@@ -311,7 +311,7 @@ def build_listings_index():
     </section>
     """
     
-    html = base_template("All Ranches", content, "Complete directory of ranch-direct beef with verified genetics.")
+    html = base_template("All Ranches", content, "Complete directory of ranch-direct beef with traceable bloodlines and named herds.")
     write_page('listings/index.html', html)
 
 def build_listing_detail(listing: Dict[str, Any]):
@@ -449,11 +449,11 @@ def build_guide():
                 </ul>
                 
                 <h2>What to Look For</h2>
-                <p><strong>Fullblood vs. Crossbred:</strong> "Fullblood" or "100%" means pure Japanese genetics. "American Wagyu" or "F1" typically means crossed with Angus. Both can be excellent—depends on your preference.</p>
+                <p><strong>Fullblood vs. Crossbred:</strong> "Fullblood" or "100%" means pure Japanese bloodlines. "American Wagyu" or "F1" typically means crossed with Angus. Both can be excellent—depends on your preference.</p>
                 
-                <p><strong>Verification:</strong> Ranches in this directory claim DNA testing, registration with breed associations (American Wagyu Association, American Akaushi Association), or traceable bloodlines. Check ranch websites for details.</p>
+                <p><strong>Verification:</strong> Ranches on Acre & Plate claim DNA testing, registration with breed associations (American Wagyu Association, American Akaushi Association), or traceable herds. Check ranch websites for details.</p>
                 
-                <p><strong>Not Grocery Store "Wagyu":</strong> This directory focuses on ranch-direct beef with verified genetics—not retail products using "Wagyu-style" marketing without genetic proof.</p>
+                <p><strong>Not Grocery Store "Wagyu":</strong> Acre & Plate focuses on ranch-direct beef with traceable sourcing—not retail products using "Wagyu-style" marketing without proof.</p>
                 
                 <div class="cta">
                     <a href="/wagyu/" class="btn-primary">Browse Wagyu Ranches</a>
@@ -464,7 +464,7 @@ def build_guide():
     </section>
     """
     
-    html = base_template("Wagyu vs Akaushi Guide", content, "Learn the difference between Wagyu and Akaushi beef, and what to look for when buying ranch-direct.")
+    html = base_template("Wagyu vs Akaushi Guide", content, "Understand the difference between Wagyu and Akaushi beef, and what to look for when buying ranch-direct.")
     write_page('guides/wagyu-vs-akaushi/index.html', html)
 
 def build_deals_page():
@@ -511,7 +511,7 @@ def build_deals_page():
         <div class="container">
             <div class="deals-intro">
                 <h2>How This Works</h2>
-                <p>We scout ranch websites for sale, clearance, and overstock inventory. When a ranch marks down ribeyes, ground beef, or other cuts, we verify the deal and list it here. <strong>Always confirm pricing and availability on the ranch website before ordering</strong>—deals change frequently.</p>
+                <p>Acre & Plate scouts ranch websites for sale, clearance, and overstock inventory. When a ranch marks down ribeyes, ground beef, or other cuts, we verify the deal and list it here. <strong>Always confirm pricing and availability on the ranch website before ordering</strong>—deals change frequently.</p>
                 <p class="deals-disclaimer">⚠️ Prices last verified {deals[0].get('verified_at', '')}. Deals subject to ranch inventory and may sell out or expire.</p>
             </div>
             
@@ -526,7 +526,7 @@ def build_deals_page():
     </section>
     """
     
-    meta = f"Current seasonal deals and overstock on Wagyu, Akaushi, and heritage beef from verified ranches. {len(deals)} active deals."
+    meta = f"Current seasonal deals and overstock on Wagyu, Akaushi, and heritage beef from ranch-direct sources. {len(deals)} active deals."
     html = base_template("Seasonal Deals & Overstock", content, meta)
     write_page('deals/index.html', html)
 
@@ -542,15 +542,15 @@ def build_about():
     <section class="about-content">
         <div class="container">
             <article class="about">
-                <h2>What This Directory Is</h2>
-                <p>A curated list of ranches selling beef direct to consumers where the genetics are <strong>named, registered, or DNA-verified</strong>—Fullblood Wagyu, Akaushi, Japanese Black, and rare heritage breeds like Randall Lineback, Dexter, and Piedmontese.</p>
+                <h2>What Acre & Plate Is</h2>
+                <p>A curated directory of ranches selling beef direct to consumers—ranches that name their herds, register their cattle, or verify bloodlines. Find Fullblood Wagyu, Akaushi, Japanese Black, and rare heritage breeds like Randall Lineback, Dexter, and Piedmontese.</p>
                 
-                <p>Not grocery store "Wagyu" marketing. Not breeding stock. Ranch-direct beef you can trace.</p>
+                <p>Not grocery store "Wagyu" marketing. Not breeding stock. Local, sustainable, ranch-direct beef you can trace.</p>
                 
                 <h2>Methodology</h2>
                 <p>Each ranch listing is verified from the ranch's own public website. We record:</p>
                 <ul>
-                    <li>Genetics claims (DNA-tested, registered, traceable bloodlines)</li>
+                    <li>Breed and bloodline claims (DNA-tested, registered, traceable herds)</li>
                     <li>Available products (steaks, ground, shares)</li>
                     <li>Shipping info (nationwide, regional, pickup only)</li>
                     <li>Direct contact information</li>
@@ -562,17 +562,17 @@ def build_about():
                 <ul>
                     <li>Breeding stock / live cattle sales</li>
                     <li>Retail products without ranch attribution</li>
-                    <li>"Wagyu-style" products without genetic verification</li>
+                    <li>"Wagyu-style" products without traceable sourcing</li>
                     <li>Restaurants (unless they're the ranch's direct retail channel)</li>
                 </ul>
                 
                 <h2>Who Built This</h2>
-                <p>This directory is maintained by BeefBot. Data is verified from ranch websites and updated periodically. If you're a ranch owner and need to update your listing, please contact us through GitHub.</p>
+                <p>Acre & Plate is maintained by BeefBot. Data is verified from ranch websites and updated periodically. If you're a ranch owner and need to update your listing, please contact us through GitHub.</p>
                 
-                <h2>How to Use This Directory</h2>
+                <h2>How to Use Acre & Plate</h2>
                 <ol>
                     <li><strong>Browse</strong> by breed, state, or all listings</li>
-                    <li><strong>Check genetics claims</strong> on each ranch's detail page</li>
+                    <li><strong>Check breed claims</strong> on each ranch's detail page</li>
                     <li><strong>Visit ranch websites</strong> to verify current availability and pricing</li>
                     <li><strong>Order direct</strong> from the ranch</li>
                 </ol>
@@ -588,12 +588,12 @@ def build_about():
     </section>
     """
     
-    html = base_template("About", content, "How this directory works and what makes it different from grocery store 'Wagyu' marketing.")
+    html = base_template("About", content, "How Acre & Plate works and what makes it different from grocery store 'Wagyu' marketing.")
     write_page('about/index.html', html)
 
 def main():
     """Build all pages"""
-    print("Building Genetic Beef Directory...\n")
+    print("Building Acre & Plate...\n")
     
     # Home page
     build_index()
@@ -610,21 +610,21 @@ def main():
         "Wagyu Ranches",
         "wagyu",
         lambda l: 'wagyu' in l['breeds'],
-        "Fullblood Wagyu ranches with DNA-verified or registered Japanese genetics. Most are Japanese Black (Kuroge), the breed known for intense marbling."
+        "Fullblood Wagyu ranches with registered or DNA-verified Japanese bloodlines. Most are Japanese Black (Kuroge), the breed known for intense marbling."
     )
     
     build_hub_page(
         "Akaushi Ranches",
         "akaushi",
         lambda l: 'akaushi' in l['breeds'],
-        "Akaushi (Japanese Brown) ranches with verified genetics. Akaushi is a rarer Wagyu breed known for balanced marbling and high monounsaturated fats."
+        "Akaushi (Japanese Brown) ranches with traceable bloodlines. Akaushi is a rarer Wagyu breed known for balanced marbling and high monounsaturated fats."
     )
     
     build_hub_page(
         "Texas Ranches",
         "texas",
         lambda l: l['state'] == 'TX',
-        "Texas ranches raising Wagyu, Akaushi, and other verified genetics beef. Ranch-direct shipping available."
+        "Texas ranches raising Wagyu, Akaushi, and other traceable-bloodline beef. Ranch-direct shipping available."
     )
     
     # Guide
