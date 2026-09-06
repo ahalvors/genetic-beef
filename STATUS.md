@@ -1,17 +1,17 @@
 # Acre & Plate - Status
 
-**Last Updated:** September 5, 2026  
+**Last Updated:** September 6, 2026  
 **Build Status:** ✅ Passing
 
 ## Site Statistics
 
-- **Total Ranches:** 18
+- **Total Ranches:** 19
 - **Active Deals:** 14
-- **Wagyu Ranches:** 11
+- **Wagyu Ranches:** 12
 - **Akaushi Ranches:** 5
 - **Heritage Breeds:** 3
 - **Texas Ranches:** 6
-- **Total Pages:** 26
+- **Total Pages:** 27
 
 ## Pages Built
 
@@ -29,7 +29,7 @@
 ### Guide Pages
 - ✅ Wagyu vs Akaushi Guide (`/guides/wagyu-vs-akaushi/`)
 
-### Listing Pages (18 ranches)
+### Listing Pages (19 ranches)
 - ✅ Lone Mountain Wagyu (NM)
 - ✅ HeartBrand Beef (TX)
 - ✅ Long Hill Wagyu (TX)
@@ -48,6 +48,7 @@
 - ✅ Chapel Hill Farm (VA)
 - ✅ Certified Piedmontese (NE)
 - ✅ Mahanaim Farms (UT)
+- ✅ Vermont Wagyu (VT)
 
 ## Known Gaps & Notes
 
@@ -58,6 +59,7 @@
 ### Contact Info Gaps
 - Most ranches have public websites and contact info verified
 - Grant Cattle Company - form-based inquiry (no direct phone on main site)
+- Vermont Wagyu - email contact available (farm@vermontwagyu.com), phone not listed on public site
 
 ### Product Availability
 - Several ranches list products as "sold out" seasonally
@@ -66,7 +68,7 @@
 ## Data Quality
 
 ### Verified Information
-All 18 ranch listings on Acre & Plate have been verified from:
+All 19 ranch listings on Acre & Plate have been verified from:
 - Public ranch websites
 - Direct product pages
 - Contact information pages
