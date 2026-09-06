@@ -10,7 +10,7 @@ Static directory site listing ranches selling beef with traceable bloodlines dir
 
 ## What This Is
 
-A curated directory of 18 U.S. ranches selling:
+A curated directory of 19 U.S. ranches selling:
 - **Fullblood Wagyu** (registered Japanese bloodlines, DNA-verified)
 - **Akaushi** (Japanese Brown Wagyu)
 - **Heritage breeds** (Randall Lineback, Dexter, Piedmontese)
@@ -24,7 +24,7 @@ All direct-to-consumer. No retail "Wagyu" marketing. Every ranch has a public we
 Static HTML site generated from `data/listings.json`:
 
 ```
-data/listings.json     # Source of truth: 18 ranch listings
+data/listings.json     # Source of truth: 19 ranch listings
 data/deals.json        # Current deals: 14 verified deals
 build.py              # Python generator: data → HTML pages
 css/site.css          # Styling
@@ -39,13 +39,13 @@ about/                # About page (generated)
 ```
 
 **Build:** `python3 build.py`  
-**Output:** 26 static HTML pages
+**Output:** 27 static HTML pages
 
 ## Repository Structure
 
 ```
 ├── data/
-│   ├── listings.json          # 18 ranch listings (source of truth)
+│   ├── listings.json          # 19 ranch listings (source of truth)
 │   └── deals.json             # 14 current deals (verified pricing)
 ├── css/
 │   └── site.css              # Site styles
@@ -65,7 +65,7 @@ about/                # About page (generated)
 python3 build.py
 ```
 
-This generates all 25 pages in the root directory.
+This generates all 27 pages in the root directory.
 
 ### View locally
 ```bash
@@ -103,7 +103,7 @@ Quick version:
 
 ## Data Quality
 
-All 18 ranches verified from public websites as of September 2026.
+All 19 ranches verified from public websites as of September 2026.
 
 **We record:**
 - Breed and bloodline claims (exact wording from ranch sites)
@@ -119,10 +119,10 @@ See [STATUS.md](STATUS.md) for known gaps and limitations.
 
 ## Site Statistics
 
-- 18 ranches
+- 19 ranches
 - 14 active deals (verified Sept 5, 2026)
-- 11 Wagyu, 5 Akaushi, 3 heritage breeds
-- 26 total pages (home, listings, deals, hubs, guides)
+- 12 Wagyu, 5 Akaushi, 3 heritage breeds
+- 27 total pages (home, listings, deals, hubs, guides)
 - Mobile-first, warm ranch/editorial design
 
 ## Technology
@@ -164,5 +164,5 @@ For directory questions or ranch additions: Open an issue on GitHub.
 
 ---
 
-**Last Updated:** September 5, 2026  
-**Ranches:** 18 | **Deals:** 14 | **Pages:** 26 | **Build:** ✅ Passing
+**Last Updated:** September 6, 2026  
+**Ranches:** 19 | **Deals:** 14 | **Pages:** 27 | **Build:** ✅ Passing

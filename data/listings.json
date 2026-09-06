@@ -236,6 +236,20 @@
       "shipping": "Pickup only in Salt Lake City (no shipping currently)",
       "note": "Local pickup only - no shipping",
       "description": "100% grass-fed and grass-finished. Regenerative family farm. Dexter cattle known for exceptional marbling and rich flavor."
+    },
+    {
+      "slug": "vermont-wagyu",
+      "name": "Vermont Wagyu",
+      "url": "https://vermontwagyu.com/",
+      "state": "VT",
+      "city": "Springfield",
+      "genetics": "100% Fullblood Wagyu; DNA parent-verified by the American Wagyu Association; Certified Authentic Wagyu Beef label",
+      "breeds": ["wagyu"],
+      "products": ["steaks", "ground", "subscription club", "gift cards"],
+      "shipping": "Ships nationwide",
+      "note": "Contact via email farm@vermontwagyu.com (phone not listed on public site)",
+      "description": "Family-owned Spring-Rock Farm (est. 1790) raising Japanese Black Fullblood Wagyu in Vermont. No hormones, steroids, or unnecessary antibiotics. Farm-to-doorstep delivery.",
+      "featured": false
     }
   ]
 }
